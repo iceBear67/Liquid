@@ -79,6 +79,26 @@ public abstract class AbstractInjector implements Injector{
      this.cache=cache;
     }
 
+    @Override
+    public boolean hasField(String name) {
+        try {
+            target.getClass().getField(name);
+            return true;
+        } catch (NoSuchFieldException e) {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean hasMethod(String name, MethodType params,boolean statica) {
+        try{
+            Object o =statica? MethodHandles.lookup().findStatic(target.getClass(),name,params):MethodHandles.lookup().findVirtual(target.getClass(),name,params);
+            return o==null;
+        }catch(Exception e){
+            return false;
+        }
+    }
+
     /**
      * Sync from injected target
      */

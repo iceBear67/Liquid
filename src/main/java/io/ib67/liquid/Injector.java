@@ -7,5 +7,6 @@ public interface Injector {
     <R> R field(String name,Class<R> returnType) throws NoSuchFieldException;
     <R> R staticMethod(String name, Class<R> returnType, MethodType paramType,Object... params);
     <R> R staticField(String name,Class<R> returnType);
-    //todo hasField / Method [static]
+    boolean hasField(String name);
+    boolean hasMethod(String name,MethodType params,boolean statica);
 }
