@@ -12,6 +12,8 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Shadow {
-
-    boolean value() default false;
+    boolean skip() default false;
+    boolean targetStatically() default false;
+    boolean injectorStatically() default false;
+    String mapTo() default "";
 }

@@ -8,7 +8,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface Liquid {
-    boolean accessAll();
     boolean shadowAll();
     //todo properties maybe?
 }
